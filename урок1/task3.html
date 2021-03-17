@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Задание 3
+        let result = 10 + 10 + "10";
+        console.log("1. " + result + ". Складываем числовые десятки, потом преобразуем к строке и контатанируем");
+        result = 10 + "10" + 10;
+        console.log("2. " + result + ". Преобразуем 10 к строке, контатанируем, повторяем со второй десяткой");
+        result = 10 + 10 + +"10";
+        console.log("3. " + result + ". Преобразуем строковую десятку к числу. Складываем всё");
+        result = 10 / -"";
+        console.log("4. " + result + ". Пустая строка превращается в 0. в -0. Что то деленное на 0 - бесконечность. Минус бесконечность)");
+        result = 10 / +"2,5";
+        console.log("5. " + result + ". Преобразование 2,5 в число дает NaN. Деление на NaN тоже NaN");
+    </script>
+</body>
+</html>
