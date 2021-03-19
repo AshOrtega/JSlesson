@@ -9,28 +9,29 @@
 <body>
     <script>
         'use strict';
+        
         function sum(arg1, arg2) {
             return (arg1 + arg2);
-        };
+        }
 
         function subtract(arg1, arg2) {
             return (arg1 - arg2);
-        };
+        }
 
         function multiply(arg1, arg2) {
             return (arg1 * arg2);
-        };
+        }
 
         function divide(arg1, arg2) {
             return (arg1 / arg2);
-        };
+        }
 
         function getNumber(count) {
             do {
                 userNumber = +prompt('Введите число ' + count);
             } while (isNaN(userNumber));
             return userNumber;
-        };
+        }
 
         function doSomeMath(arg1, arg2, operation) {
             switch(operation) {
@@ -47,7 +48,7 @@
                         return 'Бесконечность';
                     } else {
                         return divide(arg1, arg2);
-                    };
+                    }
             }
         }
 
