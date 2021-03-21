@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        
+        function sum(arg1, arg2) {
+            return (arg1 + arg2);
+        }
+
+        function subtract(arg1, arg2) {
+            return (arg1 - arg2);
+        }
+
+        function multiply(arg1, arg2) {
+            return (arg1 * arg2);
+        }
+
+        function divide(arg1, arg2) {
+            return (arg1 / arg2);
+        }
+
+        function getNumber(count) {
+            do {
+                userNumber = +prompt('Введите число ' + count);
+            } while (isNaN(userNumber));
+            return userNumber;
+        }
+
+        function doSomeMath(arg1, arg2, operation) {
+            switch(operation) {
+                case '+':
+                    return sum(arg1, arg2);
+                case '-':
+                    return subtract(arg1, arg2);
+                case '*':
+                    return multiply(arg1, arg2);
+                case '/':
+                    if (arg1 == 0 && arg2 == 0) {
+                        return 'Результат не определен';
+                    } else if (arg2 == 0) {
+                        return 'Бесконечность';
+                    } else {
+                        return divide(arg1, arg2);
+                    }
+            }
+        }
+
+        let userNumber = null;
+        let userOperation = '';
+        let number1 = getNumber(1);
+        let number2 = getNumber(2);
+        
+        do {
+            userOperation = prompt('Введите желаемую операцию в виде символа + - * /');
+        } while ((userOperation !== '+') && (userOperation !== '-') && (userOperation !== '*') && (userOperation !== '/'));
+
+        alert('Результат операции ' + number1 + userOperation + number2 + ': ' + doSomeMath(number1, number2, userOperation));
+    </script>
+</body>
+</html>

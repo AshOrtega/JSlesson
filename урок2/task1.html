@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        
+        //c = 2, так как сначала увеличивается а, а затем происходит присвоение к с.
+        let a = 1, b = 1, c, d;
+        c = ++a;
+        alert(c);
+
+        //d = 1, так как сначала идет присвоение, а затем увеличиваем b.
+        d = b++;
+        alert(d);
+
+        //а = 2, увеличиваем на 1 и прибавляем 2. В итоге с = 5.
+        c = 2 + ++a;
+        alert(c);
+
+        //d = 4, 2 + 2, а затем увеличиваем b на 1.
+        d = 2 + b++;
+        alert(d)
+
+        //а = 3. b = 3
+        alert(a);
+        alert(b);
+    </script>
+</body>
+</html>
