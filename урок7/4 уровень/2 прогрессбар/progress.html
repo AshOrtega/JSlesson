@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div></div>
+
+    <!-- 
+    Задание.
+    Нужно имитировать заполнение прогресс-бара в div.
+    -->
+
+    <script>
+        let div = document.querySelector('div');
+
+        /**
+         * @param {number} percent величина процента от 0 до 100.
+         */
+        function changeProgress(percent) {
+            div.style.background = `linear-gradient(90deg, rgba(38,255,162,1) ${percent}%, rgba(255,255,255,1) ${percent}%)`;
+        }
+
+        
+        /*
+        Вот этому примеру надо посвятить было время в следующем уроке(( Пол дня провозился с тем, что он мне сразу на 100% выставлял.
+        Stack Overflow конечно помог, но понимания как дополнительный вызов функции помогает так и не пришло.
+        */
+        
+        for (let i = 0; i <= 100; i++) {
+            setTimeout(function () {
+                changeProgress(i);
+            }, i * (i + i));
+        }
+    </script>
+</body>
+
+</html>
