@@ -1,0 +1,36 @@
+* {
+    margin: 0 auto;
+}
+
+.btn-cart {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(4, 163, 255);
+    border: none;
+    margin: 30px;
+}
+
+.by-btn {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(4, 163, 255);
+    border: none;
+}
+
+.products {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 30px;
+}
+
+.product-item {
+    border: 1px lightgray solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    width: 100%;
+    min-height: 100px;
+    max-width: 200px;
+}
