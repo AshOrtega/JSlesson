@@ -1,0 +1,35 @@
+.hamburger-controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    margin-top: 30px;
+}
+
+.hamburger-controls__burger-wrap {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.btn-add, .btn-remove, input, .hamburger-controls__topping-name {
+    display: inline-block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hamburger-controls__topping-name {
+    width: 25%;
+}
+
+.topping-quantity {
+    max-width: 50%;
+}
+
+.hamburger-controls__topping {
+    margin-top: 10px;
+}
