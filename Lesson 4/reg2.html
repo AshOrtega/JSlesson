@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <form action="">
+            <!--Создать форму обратной связи с полями: Имя, Телефон, E-mail, текст, кнопка Отправить. При нажатии на кнопку Отправить произвести валидацию полей следующим образом:
+            a. Имя содержит только буквы.
+            b. Телефон имеет вид +7(000)000-0000.
+            c. E-mail имеет вид mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru.
+            d. Текст произвольный.
+            e. Если одно из полей не прошло валидацию, необходимо выделить это поле красной рамкой и сообщить пользователю об ошибке.-->
+            Имя
+            <input type="text" name="FirstName">
+            Телефон
+            <input type="text" name="tel">
+            Почта
+            <input type="text" name="mail">
+            Комментарий
+            <input type="text" name="comment">
+        </form>
+    </main>
+    <script>
+        let inputEls = document.querySelectorAll('input');
+        function addClassToEl (event) {
+            event.classList.add('redborder');
+        }
+        function removeClassToEl (event) {
+            event.classList.remove('redborder');
+        }
+
+        
+        inputEls.forEach(el => el.addEventListener('change', (event) => {
+            switch (event.target.name){
+                case 'FirstName':
+                    let re = new RegExp(/[a-zа-я\s]+/, 'ig') 
+                    if (event.target.value.length < 1 || event.target.value.replace(re, '').length > 0) { //мне кажется это какой-то большой костыль, но ничего лучше не работало
+                        addClassToEl(event.target);
+                    } else {
+                        removeClassToEl(event.target);
+                    }
+                    break;
+                
+                case 'tel':
+                    let telCh = event.target.value.replace(/\D/g, '');
+                    if (telCh.charAt(0) == 8) {
+                        telCh = telCh.replace(/^8/, '7');
+                    }
+                        
+                    if (telCh.length != 11 || telCh.charAt(0) != 7){
+                        addClassToEl(event.target);
+                    } else {
+                        removeClassToEl(event.target);
+                        event.target.value = `+${telCh.charAt(0)}(${telCh.substr(1,3)})${telCh.substr(4,3)}-${telCh.substr(7,2)}-${telCh.substr(9,2)}`;
+                    }
+                    break;
+                
+                case 'mail':
+                    let re2 = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)+\.[a-z0-9_\.-]{2,}/, 'i');     // /^.+@.+\..{2,}/
+                    if (event.target.value.length < 1 || !re2.test(event.target.value)) { 
+                        addClassToEl(event.target);
+                    } else {
+                        removeClassToEl(event.target);
+                    }
+                    break;
+            }
+        }));
+    </script>
+</body>
+</html>
